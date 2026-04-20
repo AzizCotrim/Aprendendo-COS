@@ -1,0 +1,4 @@
+ROUTINE Aula4
+Start
+    WRITE "=== Aula 4 - Arrays ===",!
+    QUIT

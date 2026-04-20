@@ -1,0 +1,23 @@
+ROUTINE Aula3
+Start
+
+    WRITE "=== Aula 3 - Funcoes Nativas do COS ===", !
+
+    ;Manipulacao de strings
+    SET frase = "Ola, Mundo COS!"
+    WRITE "Tamanho: ", $LENGTH(frase), !
+    WRITE "Maiusculo: ", $ZCONVERT(frase, "U"), !
+    WRITE "Minusculo: ", $ZCONVERT(frase, "L"), !
+    WRITE "Trecho: ", $EXTRACT(frase, 1, 3), !
+
+    ; $PIECE - divide string por delimitador
+    SET csv = "Joao,25,Desenvolvedor,Sao Paulo"
+    WRITE "Nome: ",   $PIECE(csv, ",", 1), !
+    WRITE "Idade: ",  $PIECE(csv, ",", 2), !
+    WRITE "Cargo: ",  $PIECE(csv, ",", 3), !
+    WRITE "Cidade: ", $PIECE(csv, ",", 4), !
+
+    ; Data e hora
+    WRITE "Horolog: ", $HOROLOG, !
+    WRITE "Data atual: ", $ZDATE($HOROLOG, 5), !
+    QUIT

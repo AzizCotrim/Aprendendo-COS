@@ -1,0 +1,42 @@
+ROUTINE Aula2
+Start
+    WRITE "=== Aula 2 - Loops com FOR e WHILE(equivalentes) ===", !
+
+    ; Loop Basico de 1 ate 5
+    WRITE "Contando de 1 ate 5:", !
+    FOR i = 1:1:5 {
+        WRITE i, !
+    }
+
+    ; Loop com incremento diferente (de 2 em 2)
+    WRITE "Numeros pares:", !
+    FOR i = 0:3:10 {
+        WRITE i, " "
+    }
+    WRITE !
+
+    ; Loop decrescente
+    WRITE "Contagem regressiva:", !
+    FOR i = 5:-1:1 {
+        WRITE i, " "
+    }
+    WRITE !
+
+    ;Loop com condicao de saida (equivalente ao while)
+    SET n = 1
+    FOR{
+        SET quadrado = n * n
+        QUIT:(quadrado > 100) //COMANDO:(condição) é chamado de postcondicional no COS
+        WRITE n, " ao quadrado = ", quadrado, !
+        SET n = n + 1
+    }
+
+    ;DO WHILE equivalente
+    WRITE "Forca bruta ate 5:", !
+    SET x = 1
+    DO{
+        WRITE x, !
+        SET x = x + 1
+    } WHILE x <= 5
+
+    QUIT
