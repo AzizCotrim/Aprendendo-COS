@@ -24,7 +24,7 @@ Start
     FOR{
         SET chave = $ORDER(alunos(chave))
         QUIT:(chave = "")
-        WRITE chave, ": ",alunos(chave, "nome"), " - ", alunos(chave, "nota"), !
+        WRITE chave, ": ",alunos(chave, "nome"), " - ", $NUMBER(alunos(chave, "nota"), 2), !
     }
 
     ;3
