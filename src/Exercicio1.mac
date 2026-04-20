@@ -1,0 +1,63 @@
+ROUTINE Exercicio1
+Start
+    ;1
+    WRITE "=== Exercicio 1 ===", !
+
+    SET alunos(1, "nome") = "Aziz"
+    SET alunos(1, "nota") = 7.0
+
+    SET alunos(2, "nome") = "Gabriel"
+    SET alunos(2, "nota") = 9.5
+
+    SET alunos(3, "nome") = "Miguel"
+    SET alunos(3, "nota") = 10.0
+
+    SET alunos(4, "nome") = "Alana"
+    SET alunos(4, "nota") = 3.0
+
+    SET alunos(5, "nome") = "ShadowHeart"
+    SET alunos(5, "nota") = 8.5
+
+    ;2
+    WRITE "=== 2 - Nomes e Notas dos Alunos ===",!
+    SET chave = ""
+    FOR{
+        SET chave = $ORDER(alunos(chave))
+        QUIT:(chave = "")
+        WRITE chave, ": ",alunos(chave, "nome"), " - ", alunos(chave, "nota"), !
+    }
+
+    ;3
+    WRITE "=== 3 - Media da Turma ===",!
+    SET total = 0
+    SET qtd = 0
+    SET i = ""
+    FOR{
+        SET i = $ORDER(alunos(i))
+        QUIT:(i = "")
+        SET total = total + alunos(i, "nota")
+        SET qtd = qtd + 1
+    }
+    WRITE "Total: ", total, !
+    WRITE "Qtd: ", qtd, !
+    WRITE "Media: ", total/qtd, !
+
+    ;4
+    WRITE "=== 4 - Quantidade de Aprovados ===",!
+    SET apr = 0
+    SET rep = 0
+    SET x = ""
+    FOR{
+        SET x = $ORDER(alunos(x))
+        QUIT:(x = "")
+        IF alunos(x, "nota") >= 7{
+            SET apr = apr + 1
+        } ELSE {
+            SET rep = rep + 1
+        }
+    }
+    WRITE "Alunos Aprovados: ", apr,!
+    WRITE "Alunos Reprovados: ", rep,!
+
+
+    QUIT
