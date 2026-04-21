@@ -1,0 +1,52 @@
+ROUTINE Aula6
+Gravar
+    SET ^Produtos(1, "nome") = "Notebook"
+    SET ^Produtos(1, "preco") = 3500.00
+    SET ^Produtos(1, "qtd") = 10
+
+    SET ^Produtos(2, "nome") = "Mouse"
+    SET ^Produtos(2, "preco") = 150.00
+    SET ^Produtos(2, "qtd") = 50
+
+    SET ^Produtos(3, "nome") = "Teclado"
+    SET ^Produtos(3, "preco") = 300.00
+    SET ^Produtos(3, "qtd") = 30
+
+    WRITE "Produtos gravados!", !
+    QUIT
+
+Listar
+    WRITE "=== Produtos ===", !
+    SET i = ""
+    FOR {
+        SET i = $ORDER(^Produtos(i))
+        QUIT:(i = "")
+        WRITE i, ": ", ^Produtos(i, "nome")
+        WRITE " - R$ ", ^Produtos(i, "preco")
+        WRITE " - Qtd: ", ^Produtos(i, "qtd"),!
+    }
+    QUIT
+
+Atualizar
+    SET ^Produtos(1, "preco") = 3200.00
+    WRITE "Preco Atualizado"
+    QUIT
+
+Resumo
+    WRITE "=== Resumo do Estoque ===", !
+    SET x = ""
+    SET total = 0
+    FOR {
+        SET x = $ORDER(^Produtos(x))
+        QUIT:(x = "")
+        SET subtotal = ^Produtos(x, "preco") * ^Produtos(x, "qtd")
+        SET total = total + subtotal
+        WRITE ^Produtos(x, "nome"), " - Total: ", subtotal, !
+    }
+    WRITE "Valor total geral: ", total, !
+    QUIT
+
+Deletar
+    KILL ^Produtos
+    WRITE "Global deletado!", !
+    QUIT

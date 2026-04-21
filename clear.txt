@@ -1,3 +1,2 @@
 // WRITE $CHAR(27)_"[2J"_$CHAR(27)_"[H"
-// docker exec -it <nome_do_container> bash
-iris session IRIS
+// docker exec -it iris-estudos iris session IRIS
