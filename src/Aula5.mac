@@ -1,0 +1,24 @@
+ROUTINE Aula5
+Start
+    WRITE "=== Aula 5 - Salvar no banco (Global) ===", !
+
+    ; Array local — some ao fechar o terminal
+    ;SET alunos(1, "nome") = "João"
+
+    ; Global — fica salvo no banco para sempre
+    ;SET ^Alunos(1, "nome") = "João"
+
+    SET ^Alunos(1, "nome") = "Aziz"
+    SET ^Alunos(1, "nota") = 7.0
+    SET ^Alunos(1, "nome") = "Maria"
+    SET ^Alunos(1, "nota") = 9.0
+
+    WRITE "Dados gravados!", !
+    WRITE "Nome do aluno 1: ", ^Alunos(1, "nome"), !
+
+    ; Verificar Existencia
+    IF $DATA(^Alunos(1)){
+        WRITE "Global existe", !
+    }
+    
+    QUIT

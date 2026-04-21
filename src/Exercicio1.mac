@@ -1,5 +1,6 @@
 ROUTINE Exercicio1
 Start
+    ; Aula 1 ate 4
     ;1
     WRITE "=== Exercicio 1 ===", !
 
