@@ -1,0 +1,35 @@
+ROUTINE Exercicio2
+Cadastrar
+    SET ^Produtos(1, "nome") = "Computador"
+    SET ^Produtos(1, "qtd") = 0
+
+    SET ^Produtos(2, "nome") = "Mouse"
+    SET ^Produtos(2, "qtd") = 0
+
+    SET ^Produtos(3, "nome") = "Teclado"
+    SET ^Produtos(3, "qtd") = 0
+    
+    QUIT
+
+Entrada(pId, pQtd)
+    SET ^Produtos(pId, "qtd") = pQtd
+    QUIT
+
+Saida(pId, pQtd)
+    SET estoque = ^Produtos(pId, "qtd")
+    IF pQtd > estoque {
+        WRITE "Estoque insuficiente", !
+    } ELSE {
+        SET ^Produtos(pId, "qtd") = estoque - pQtd
+    }
+    QUIT
+
+Relatorio
+    WRITE "=== Relatorio de Produtos ==="
+    SET i = ""
+    FOR {
+        SET i = $LENGTH(^Produtos(i))
+        QUIT:(i = "")
+        WRITE i, ". ", ^Produtos(i, "nome"), " - ", ^Produtos(i, "qtd"),! 
+    }
+    QUIT
