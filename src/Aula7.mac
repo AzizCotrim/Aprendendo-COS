@@ -1,0 +1,31 @@
+ROUTINE Aula7
+
+SemParametros
+    WRITE "Sem parametros", !
+    QUIT
+
+ComUmParametro(pNome)
+    WRITE "Ola, ", pNome, "!", !
+    QUIT
+
+ComVariosParametros(pNome, pIdade, pCidade)
+    WRITE "Nome: ",   pNome,   !
+    WRITE "Idade: ",  pIdade,  !
+    WRITE "Cidade: ", pCidade, !
+    QUIT
+
+ComValorPadrao(pNome, pSaudacao = "Ola")
+    WRITE pSaudacao, ", ", pNome, "!", !
+    QUIT
+
+Somar(pA, pB)
+    QUIT pA + pB
+
+MontarMensagem(pNome, pNota)
+    SET resultado = pNome _ " tirou nota " _ pNota
+    IF pNota >= 7 {
+        SET resultado = resultado _ " - Aprovado"
+    } ELSE {
+        SET resultado = resultado _ " - Reprovado"
+    }
+    QUIT resultado
